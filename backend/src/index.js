@@ -20,7 +20,7 @@ const main = async () => {
     res.send("Server is up and running");
   });
 
-  app.use("/api/auth", AuthRoute);
+  app.use("/user", AuthRoute);
 
   app.listen(port, () => {
     console.log("Server Running at port", port);

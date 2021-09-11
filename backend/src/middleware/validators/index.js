@@ -1,21 +1,23 @@
 const { check } = require("express-validator");
 
-exports.DeleteValidator = [
-  check("email", "E-mail is required").not().isEmpty(),
-];
+exports.DeleteUserValidator = [check("email", "E-mail is required").isEmail()];
 
 exports.RegisterValidator = [
   check("email", "E-mail is required").isEmail(),
-  check("password", "Password is required").isLength({ min: 5 }),
-  check("firstName", "First Name is required").not().isEmpty(),
-  check("lastName", "Last Name is required").not().isEmpty(),
-  check("phone", "Phone Number is required").not().isEmpty(),
+  check("phone", "Phone is required").not().isEmpty(),
+  check("name", "Name is required").not().isEmpty(),
+  // check("city", "City is required").not().isEmpty(),
+  // check("state", "State is required").not().isEmpty(),
+  // check("country", "Country is required").not().isEmpty(),
+  // check("area", "Area is required").not().isEmpty(),
 ];
 
 exports.UpdateProfileValidator = [
   check("email", "E-mail is required").isEmail(),
-  check("password", "Password is required").isLength({ min: 5 }),
-  check("firstName", "First Name is required").not().isEmpty(),
-  check("lastName", "Last Name is required").not().isEmpty(),
-  check("phone", "Phone Number is required").not().isEmpty(),
+  check("phone", "Phone is required").not().isEmpty(),
+  check("name", "Name is required").not().isEmpty(),
+  check("city", "City is required").not().isEmpty(),
+  check("state", "State is required").not().isEmpty(),
+  check("country", "Country is required").not().isEmpty(),
+  check("area", "Area is required").not().isEmpty(),
 ];

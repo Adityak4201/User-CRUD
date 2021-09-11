@@ -4,17 +4,18 @@ const AuthController = require("../controllers/auth");
 
 const {
   RegisterValidator,
-  LoginValidator,
   UpdateProfileValidator,
+  DeleteUserValidator,
 } = require("../middleware/validators");
 
-router.post("/login", LoginValidator, AuthController.Login);
 router.post("/register", RegisterValidator, AuthController.Register);
 router.get("/getUsers", AuthController.getUsers);
 router.post(
-  "/updateProfile",
+  "/updateUser",
   UpdateProfileValidator,
   AuthController.UpdateUserProfile
 );
+
+router.post("/delete", DeleteUserValidator, AuthController.Delete);
 
 module.exports = router;

@@ -8,21 +8,23 @@ const UserSchema = new Schema(
       required: true,
       unique: true,
     },
-    password: {
-      type: String,
-      required: true,
-    },
-    firstName: {
-      type: String,
-    },
-    lastName: {
+    name: {
       type: String,
     },
     phone: {
       type: String,
     },
-    photo: {
-      type: Buffer,
+    city: {
+      type: String,
+    },
+    state: {
+      type: String,
+    },
+    country: {
+      type: String,
+    },
+    area: {
+      type: String,
     },
   },
   { timestamps: true }
