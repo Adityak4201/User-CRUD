@@ -1,8 +1,7 @@
 const { check } = require("express-validator");
 
-exports.LoginValidator = [
+exports.DeleteValidator = [
   check("email", "E-mail is required").not().isEmpty(),
-  check("password", "Password is required").not().isEmpty(),
 ];
 
 exports.RegisterValidator = [
