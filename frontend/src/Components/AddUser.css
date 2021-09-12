@@ -1,5 +1,5 @@
 @media (min-width: 768px) {
-  .container {
+  .adduser-container {
     max-width: 600px !important;
   }
   .inline-dropdown {
@@ -20,6 +20,16 @@
   }
 }
 
+.adduser-container {
+  box-sizing: border-box;
+  border: 1px solid #edab46;
+  box-shadow: 10px 10px 8px #888888;
+}
+
+.heading {
+  color: #edab46;
+}
+
 .mb-3 {
   text-align: left;
 }
@@ -30,6 +40,7 @@
   border: none;
   height: 35px;
   border-radius: 4px;
+  margin: 15px;
 }
 
 .inline-dropdown {

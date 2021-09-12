@@ -57,8 +57,8 @@ function AddUser() {
 
   return (
     <div>
-      <Container>
-        <h1>Add A User</h1>
+      <Container className="adduser-container">
+        <h1 className="heading">Add A User</h1>
         {success && <Alert variant="success">{success}</Alert>}
         {error && <Alert variant="danger">{error}</Alert>}
         <Form.Group className="mb-3">

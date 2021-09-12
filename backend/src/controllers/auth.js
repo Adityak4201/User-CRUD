@@ -33,7 +33,7 @@ exports.getUsers = async (req, res) => {
     return res.status(200).json({ users });
   } catch (error) {
     console.log(error);
-    res.status(400).json({ error });
+    res.status(402).json({ error });
   }
 };
 
