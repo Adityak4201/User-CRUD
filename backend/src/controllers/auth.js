@@ -66,7 +66,7 @@ exports.Delete = async (req, res) => {
   if (!errors.isEmpty()) {
     return res.status(400).json({ errors: errors.array() });
   }
-  const { email } = req.body;
+  const { email } = req.query;
   await User.findOneAndDelete({ email })
     .then((user) => {
       if (!user) {
