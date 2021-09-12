@@ -43,6 +43,14 @@
   margin: 15px;
 }
 
+.submit-button:hover {
+  background-color: #236e86;
+}
+
+.submit-button:active {
+  background-color: mediumaquamarine;
+}
+
 .inline-dropdown {
   height: 38px;
   border-radius: 0.25rem;

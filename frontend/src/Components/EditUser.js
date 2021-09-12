@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
@@ -10,7 +10,7 @@ import { CountryDropdown, RegionDropdown } from "react-country-region-selector";
 import axios from "axios";
 import "react-phone-number-input/style.css";
 
-function EditUser() {
+function EditUser(props) {
   const [user, setUser] = useState({
     name: "",
     email: "",
@@ -20,14 +20,19 @@ function EditUser() {
     city: "",
     area: "",
   });
+  const state = props.location.state;
+  useEffect(() => {
+    if (state !== null) setUser(state.user);
+  }, []);
+  // console.log(user);
   const [success, setSuccess] = useState("");
   const [error, setError] = useState("");
 
   const handleInput = (e) => {
     const name = e.target.name;
     const val = e.target.value;
-    // console.log(val);
     setUser({ ...user, [name]: val });
+    console.log(user);
   };
 
   const handlePhone = (val) => {
@@ -64,11 +69,22 @@ function EditUser() {
           <Row>
             <Col xs={12} md={6}>
               <Form.Label className="m-2">Name</Form.Label>
-              <Form.Control name="name" type="text" onChange={handleInput} />
+              <Form.Control
+                name="name"
+                type="text"
+                value={user.name}
+                onChange={handleInput}
+              />
             </Col>
             <Col xs={12} md={6}>
               <Form.Label className="m-2">Email</Form.Label>
-              <Form.Control type="email" name="email" onChange={handleInput} />
+              <Form.Control
+                type="email"
+                name="email"
+                value={user.email}
+                onChange={handleInput}
+                disabled
+              />
             </Col>
           </Row>
           <Row>
@@ -107,11 +123,21 @@ function EditUser() {
           <Row>
             <Col xs={12} md={6}>
               <Form.Label className="m-2">City</Form.Label>
-              <Form.Control type="text" name="city" onChange={handleInput} />
+              <Form.Control
+                type="text"
+                name="city"
+                value={user.city}
+                onChange={handleInput}
+              />
             </Col>
             <Col xs={12} md={6}>
               <Form.Label className="m-2">Area</Form.Label>
-              <Form.Control type="text" name="area" onChange={handleInput} />
+              <Form.Control
+                type="text"
+                name="area"
+                value={user.area}
+                onChange={handleInput}
+              />
             </Col>
           </Row>
         </Form.Group>
@@ -119,7 +145,7 @@ function EditUser() {
           type="button"
           className="submit-button"
           onClick={handleSubmit}
-          value="Submit"
+          value="Update"
         />
       </Container>
     </div>
